@@ -15,4 +15,4 @@ A script that takes an IP address as input and mathematically verifies if it's a
 - **Concepts applied:** `ipaddress` module, `try/except` error handling (`ValueError`), loop breaking.
 
 ---
-*Note: These tools mark the beginning of my Python journey (Day 3!). The goal is to continuously update them and add more complex automations as my skills grow.*
+*These tools mark the beginning of my Python journey (Day 3!). The goal is to continuously update them and add more complex automations as my skills grow.*
