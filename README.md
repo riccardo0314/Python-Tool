@@ -1,5 +1,5 @@
 # Python-Tool for CTI
-The evolution of my Python skills. This a collection of my Python's script/tool. 
+
 
 
 The evolution of my Python skills. This repository is a collection of my Python scripts/tools, specifically focused on Cybersec and CTI daily tasks.
