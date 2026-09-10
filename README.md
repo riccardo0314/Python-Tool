@@ -1,7 +1,5 @@
-<<<<<<< HEAD
+
 # Python-Tool for CTI
-
-
 
 The evolution of my Python skills. This repository is a collection of my Python scripts/tools, specifically focused on Cybersec and CTI daily tasks.
 
@@ -26,31 +24,13 @@ Currently active development — see [DEVLOG.md](DEVLOG.md) for write-up and pat
 ---
 
 ### Modules
-=======
-# Python-Tool — OSINT/CTI Recon Aggregator
-
-An open-source tool for automating the collection and correlation of OSINT from public sources, 
-
-featuring AI-based integrative analysis to highlight (potential) relationships 
-
-between the identified entities.
-
-Current state:
-Currently active development — see [DEVLOG.md](DEVLOG.md) for write-up and path chosen.
-
-## Modules
->>>>>>> master
-
 * \[x] `crt.sh` 
 * \[ ] `VirusTotal` 
 * \[ ] `urlscan.io` 
 * \[ ] AI correlation layer
 
-<<<<<<< HEAD
-### Installation
-=======
+
 ## Installation
->>>>>>> master
 
 ```bash
 git clone https://github.com/riccardo0314/Python-Tool.git
@@ -58,11 +38,9 @@ cd Python-Tool
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
-## Use:
-=======
+
+
 ## Use
->>>>>>> master
 
 ### Subdomain enumeration
 
@@ -72,8 +50,6 @@ python crtsh\_lookup.py example.com
 
 Print found subdomain and save results on
 `crtsh\_<domain>.json`.
-
-<<<<<<< HEAD
 
 ---
 .
@@ -98,13 +74,6 @@ Use them only on authorised target.
 
 MIT
 
-
-=======
-## Disclaimer
-
-This tool has been developed for legitimate OSINT research and reconnaiissance.
-
-Use it only on authorised target.
 
 ## Licence
 
