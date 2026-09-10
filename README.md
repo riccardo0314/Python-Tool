@@ -73,10 +73,3 @@ Use them only on authorised target.
 # Licence
 
 MIT
-
-
-## Licence
-
-MIT
-
->>>>>>> master
