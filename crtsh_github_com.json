@@ -1,0 +1,597 @@
+[
+  {
+    "type": "domain",
+    "value": "api.mcp.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "api.security.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "api.stars.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "asset-generator.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "atom-installer.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "awesome-copilot.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "branch.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "brandguide.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "bug-bash.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "camo.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "central.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "cla.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "classroom.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "cloud.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "codespaces-dev.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "codespaces-ppe.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "codespaces.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "communication.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "community.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "copilot-billing-preview.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "copilot-reports.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "design-camp.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "dev-days.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "dev.gtm.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "docs-front-door.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "docs.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "dodgeball.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "ducky.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "edu.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "education.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "emails.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "enterprise.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examadmin-uat.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examadmin.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examregistration-api.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examregistration-uat-api.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examregistration-uat.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "examregistration.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "f.cloud.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "fast.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "gameoff.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "garage.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "ghicons.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "gist.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "graphql-stage.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "graphql.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "gsnlink.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "help.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "helpnext.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "hq.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "https://github.com/levimarvin/ofca",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "id.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "import.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "import2.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "importer2.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "jira.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "jobs.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "lab-sandbox.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "learn.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "livesend.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "m.communication.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "mac-installer.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "mailing.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "maintainers.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "model-launchkit.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "mona-arcade.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "octocaptcha.review-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "octostatus-production.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "offer.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "partnerportal.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "pkg.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "porter.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "porter2.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "proxima-review-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "raw.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "registry.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "render-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "render.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "res.communication.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "review-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "rs.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "schrauger.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "skyline.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "slack.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "smtp.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "spotlights-feed.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "staging-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "status.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "stg.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "styleguide.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "support.enterprise.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "support@github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "t.communication.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "talks.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "visualstudio.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "vpn-ca.iad.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "vscode-auth.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "workspaces-dev.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "workspaces-ppe.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "workspaces.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "ws.help.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "ws.support.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.api.security.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.api.stars.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.communication.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.graphql-stage.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.graphql.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.jira.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.maintainers.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.partnerportal.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.render-lab.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.skyline.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.smtp.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.support.enterprise.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.visualstudio.github.com",
+    "source": "crt.sh"
+  },
+  {
+    "type": "domain",
+    "value": "www.ws.support.github.com",
+    "source": "crt.sh"
+  }
+]
