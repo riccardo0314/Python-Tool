@@ -16,7 +16,7 @@ A script that takes an IP address as input and mathematically verifies if it's a
 *These tools mark the beginning of my Python journey (Day 3!). The goal is to continuously update them and add more complex automations as my skills grow.*
 
 ---
-### 3. # Python-Tool — OSINT/CTI Recon Aggregator
+### 3. Python-Tool — OSINT/CTI Recon Aggregator
 
 An open-source tool for automating the collection and correlation of OSINT from public sources, 
 
