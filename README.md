@@ -52,25 +52,16 @@ Print found subdomain and save results on
 
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 
 # Disclaimer
 
