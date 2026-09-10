@@ -1,10 +1,14 @@
-while True:
-    link = input("""type ESC to quit
-Insert malicious link:   """)
-    if link == "ESC" or link == "esc":
-        print ('Programme closed')
-        break
-    else:
-        print(link.replace("http", "hxxp").replace (".", "[.]" ). replace("https" , "hxxps"))
-    
+# utils/url_defanger.py
+def defang(url: str) -> str:
+    return url.replace("https", "hxxps").replace("http", "hxxp").replace(".", "[.]")
+
+
+if __name__ == "__main__":
+    # Modalità standalone
+    while True:
+        link = input("type ESC to quit\nInsert malicious link:   ")
+        if link.upper() == "ESC":
+            print('Programme closed')
+            break
+        print(defang(link))
     
