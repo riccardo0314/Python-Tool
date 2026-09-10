@@ -4,7 +4,6 @@
 
 The evolution of my Python skills. This repository is a collection of my Python scripts/tools, specifically focused on Cybersec and CTI daily tasks.
 
-### Tools Included
 
 ## 1. URL Defanger (`url_defanger.py`)
 A quick, light and easy script to neutralize malicious URLs before sharing them with  team or in reports. It prevents accidental clicks by replacing protocols and wrapping dots.
