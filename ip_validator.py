@@ -10,7 +10,7 @@ def is_valid_ip(ip_input: str) -> bool:
 
 
 if __name__ == "__main__":
-    # Modalità standalone: comportamento originale, invariato
+    # Modalità standalone
     print("To kill the program, type ESC anytime")
     while True:
         ip_input = input('Insert IP to validate:   ')
