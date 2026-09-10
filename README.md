@@ -17,13 +17,10 @@ A script that takes an IP address as input and mathematically verifies if it's a
 ---
 ## 3. Python-Tool — OSINT/CTI Recon Aggregator
 
-An open-source tool for automating the collection and correlation of OSINT from public sources, 
-
-featuring AI-based integrative analysis to highlight (potential) relationships 
-
-between the identified entities.
+An open-source tool for automating the collection and correlation of OSINT from public sources, featuring AI-based integrative analysis to highlight (potential) relationships between the identified entities.
 
 Current state:
+
 Currently active development — see [DEVLOG.md](DEVLOG.md) for write-up and path chosen.
 
 ### Modules
