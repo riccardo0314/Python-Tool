@@ -4,8 +4,9 @@ An open-source tool for automating the collection and correlation of OSINT from 
 
 featuring AI-based integrative analysis to highlight (potential) relationships 
 
-between the identified entities.Stato del progetto
+between the identified entities.
 
+Current state:
 Currently active development — see [DEVLOG.md](DEVLOG.md) for write-up and path chosen.
 
 ## Modules
