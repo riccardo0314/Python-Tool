@@ -1,67 +1,62 @@
 """
 main.py
 
-Punto di ingresso del tool. Per ora è solo una demo che mostra come
-i pezzi si collegano: importa il modulo crt.sh e le utility, ed esegue
-una ricerca su un dominio passato da riga di comando.
+Entry point of the tool. Runs all available modules against a target
+domain, tags results, and saves everything to a JSON file.
 """
 
 import sys
 import json
 
 from modules.crtsh import cerca_subdomains, METADATA as CRTSH_METADATA
+from modules.virustotal import check_domain, METADATA as VT_METADATA
 from utils.ip_validator import is_valid_ip
 from utils.url_defanger import defang
 
 
-def main():
-    if len(sys.argv) != 2:
-        print("Uso: python main.py <dominio>")
-        sys.exit(1)
-
-    dominio = sys.argv[1]
-
-    # Mostriamo i metadati della fonte prima di interrogarla:
-    # è il pezzo ispirato ad ARGUS di cui parlavamo — sapere PRIMA
-    # cosa aspettarsi da questa fonte, non solo dopo.
-    print(f"[*] Fonte: {CRTSH_METADATA['nome']}")
-    print(f"    Affidabilità per subdomain enumeration: "
-          f"{CRTSH_METADATA['affidabilità_stimata']['subdomain_enumeration']}")
-    print(f"    Costo per query: {CRTSH_METADATA['costo_per_query']}")
+def print_source_info(metadata: dict) -> None:
+    """Print a short summary of a source before querying it."""
+    print(f"[*] Source: {metadata['name'] if 'name' in metadata else metadata.get('nome')}")
+    print(f"    Cost per query: {metadata.get('cost_per_query', metadata.get('costo_per_query'))}")
     print()
 
-    # Raccolta dati vera e propria
-    risultati = cerca_subdomains(dominio)
 
-    if not risultati:
-        print("[!] Nessun risultato trovato.")
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python main.py <domain>")
+        sys.exit(1)
+
+    domain = sys.argv[1]
+    all_results = []
+
+    # --- crt.sh: subdomain enumeration ---
+    print_source_info(CRTSH_METADATA)
+    crtsh_results = cerca_subdomains(domain)
+    all_results.extend(crtsh_results)
+
+    for r in crtsh_results:
+        value = r["valore"]
+        tag = "IP" if is_valid_ip(value) else "DOMAIN"
+        print(f"    [{tag}] {value}")
+
+    # --- VirusTotal: domain reputation ---
+    print()
+    print_source_info(VT_METADATA)
+    vt_results = check_domain(domain)
+    all_results.extend(vt_results)
+
+    if not all_results:
+        print("[!] No results collected from any source.")
         return
 
-    print(f"[*] Trovati {len(risultati)} risultati:\n")
+    # Example: defang the target domain for a shareable report line
+    print(f"\n[*] Defanged target for reporting: {defang(f'https://{domain}')}")
 
-    for r in risultati:
-        valore = r["valore"]
-
-        # Esempio di uso di is_valid_ip: quasi tutti i risultati di crt.sh
-        # sono domini, non IP, quindi questo sarà quasi sempre False —
-        # ma dimostra come un modulo può usare l'utility per instradare
-        # il dato in modo diverso a seconda del tipo (IP vs dominio).
-        if is_valid_ip(valore):
-            print(f"    [IP]     {valore}")
-        else:
-            print(f"    [DOMAIN] {valore}")
-
-    # Esempio di uso di defang: prendiamo il primo risultato e mostriamo
-    # come apparirebbe "disinnescato" in un report condivisibile
-    primo = risultati[0]["valore"]
-    url_finto = f"https://{primo}"
-    print(f"\n[*] Esempio di URL defanged per report: {defang(url_finto)}")
-
-    # Salvataggio risultati
-    nome_file = f"output/crtsh_{dominio.replace('.', '_')}.json"
-    with open(nome_file, "w", encoding="utf-8") as f:
-        json.dump(risultati, f, indent=2, ensure_ascii=False)
-    print(f"[*] Risultati salvati in {nome_file}")
+    # Save everything to a single JSON file
+    output_file = f"output/{domain.replace('.', '_')}.json"
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(all_results, f, indent=2, ensure_ascii=False)
+    print(f"[*] Results saved to {output_file}")
 
 
 if __name__ == "__main__":

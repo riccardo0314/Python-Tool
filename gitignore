@@ -1,0 +1,13 @@
+# Secrets - never commit
+.env
+
+# Generated results, not source code
+output/*.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
