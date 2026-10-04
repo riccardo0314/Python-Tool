@@ -1,0 +1,146 @@
+[
+  {
+    "tipo": "ip",
+    "valore": "104.21.70.191",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "172.67.147.31",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "172.67.167.119",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "188.114.96.3",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "188.114.97.3",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.209.208.91",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.39.184.70",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.51.60.61",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.52.180.57",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "2a02:26f0:2780:b93::700",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "2a02:26f0:3100:784::700",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "ip",
+    "valore": "46.225.129.34",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "ip",
+    "valore": "5.189.190.128",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://aerodynamically743.dawsvale.com/678inaudibility/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://auth.tesla.com/oauth2/v3/authorize?response_type=code&scope=device_data%20email%20energy_cmds%20energy_device_data%20offline_access%20openid%20user_data%20vehicle_charging_cmds%20vehicle_cmds%20vehicle_device_data&client_id=businessui&state=123456&redirect_uri=https://live-data.america.fn.tesla.com/oauth/callback&prompt_missing_scopes=true&require_requested_scopes=true",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "url",
+    "valore": "https://auth.tesla.com/oauth2/v3/authorize?response_type=code&scope=device_data%20email%20energy_cmds%20energy_device_data%20offline_access%20openid%20user_data%20vehicle_charging_cmds%20vehicle_cmds%20vehicle_device_data&client_id=businessui&state=123456&redirect_uri=https://live-data.prd.america.fn.tesla.com/oauth/callback&prompt_missing_scopes=true&require_requested_scopes=true",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "url",
+    "valore": "https://futurexdeliveryservice.com/en/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://neuradeliverycompany.com/elon/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://staging.tff-order-stats.de/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://testlainvestus.com/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://tff-order-stats.de/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.assettradeinc.com/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": false
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.tesla.com/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.tesla.com/en_in/",
+    "fonte": "urlscan.io (search)",
+    "same_domain": true
+  }
+]

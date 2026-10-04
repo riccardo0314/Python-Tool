@@ -13,6 +13,7 @@ from modules.virustotal import check_domain, METADATA as VT_METADATA
 from modules.urlscan import search_domain, METADATA as URLSCAN_METADATA
 from utils.ip_validator import is_valid_ip
 from utils.url_defanger import defang
+from ai.debate import run_debate
 
 
 def print_source_info(metadata: dict) -> None:
@@ -53,7 +54,8 @@ def main():
     all_results.extend(urlscan_results)
 
     for r in urlscan_results:
-        print(f"    [{r['tipo'].upper()}] {r['valore']}")
+        tag = "same-domain" if r.get("same_domain") else "unrelated/referencing"
+        print(f"    [{r['tipo'].upper()}] {r['valore']}  ({tag})")
 
     if not all_results:
         print("[!] No results collected from any source.")
@@ -62,11 +64,24 @@ def main():
     # Example: defang the target domain for a shareable report line
     print(f"\n[*] Defanged target for reporting: {defang(f'https://{domain}')}")
 
-    # Save everything to a single JSON file
+    # Save raw results to a JSON file
     output_file = f"output/{domain.replace('.', '_')}.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
     print(f"[*] Results saved to {output_file}")
+
+    # --- AI correlation layer: two-model debate ---
+    print("\n[*] Starting AI correlation (two-model debate)...\n")
+    debate_result = run_debate(all_results)
+
+    if debate_result["final_report"]:
+        print("\n[*] Final AI report:\n")
+        print(debate_result["final_report"])
+
+        report_file = f"output/{domain.replace('.', '_')}_ai_report.json"
+        with open(report_file, "w", encoding="utf-8") as f:
+            json.dump(debate_result, f, indent=2, ensure_ascii=False)
+        print(f"\n[*] Full debate + report saved to {report_file}")
 
 
 if __name__ == "__main__":
