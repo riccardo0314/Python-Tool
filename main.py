@@ -10,6 +10,7 @@ import json
 
 from modules.crtsh import cerca_subdomains, METADATA as CRTSH_METADATA
 from modules.virustotal import check_domain, METADATA as VT_METADATA
+from modules.urlscan import search_domain, METADATA as URLSCAN_METADATA
 from utils.ip_validator import is_valid_ip
 from utils.url_defanger import defang
 
@@ -44,6 +45,15 @@ def main():
     print_source_info(VT_METADATA)
     vt_results = check_domain(domain)
     all_results.extend(vt_results)
+
+    # --- urlscan.io: existing scans (IPs, pages) ---
+    print()
+    print_source_info(URLSCAN_METADATA)
+    urlscan_results = search_domain(domain)
+    all_results.extend(urlscan_results)
+
+    for r in urlscan_results:
+        print(f"    [{r['tipo'].upper()}] {r['valore']}")
 
     if not all_results:
         print("[!] No results collected from any source.")

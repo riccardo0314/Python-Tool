@@ -3,5 +3,185 @@
     "tipo": "reputation_score",
     "valore": 726,
     "fonte": "VirusTotal"
+  },
+  {
+    "tipo": "ip",
+    "valore": "104.18.0.75",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "104.18.1.75",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "104.18.17.52",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "13.248.243.5",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "142.251.127.132",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "152.53.83.13",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "162.215.15.149",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "18.214.191.162",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "188.114.97.3",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "198.251.89.200",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "199.232.192.247",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "199.232.196.247",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.2.13.51",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.200.88.50",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "23.227.38.74",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "2a00:1450:4001:c15::84",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "ip",
+    "valore": "3.76.241.179",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://876it-vibor.rufacebook.events.thesixfigurementors.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://avito.www.sberbank.ozon.fawumz1wmj0gqod3.establish.gleeze.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://bpay.blogspot.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://dgfsdfgsdfds.blogspot.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://firstcallkuwait.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://hardhatcowboy.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://karriere.ffg-hamburg.de/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://kleinana291.blogspot.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://linkvertise.com/1378706/JTQZRT74eZve",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://odgconsulting.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://tamanvgg.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.abowt.domains/name/ProLink.si",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.buddhaartpainting.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.claro.com.co/personas/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.claro.com.pe/empresas/evento/webinar-acronis-seguridad/?utm_source=Icommarketing&utm_medium=email&utm_content=ML_CE_CORP_POD_1E_20260804&utm_campaign=Icommarketing+-+CLARO+EMPRESAS+-+ML_CE_CORP_POD_1E_20260804&icomm_e=zzlmovnC2YrF_wyjWo1_DVIl6KhRbYx3GsdfQx3EfqX1N0eW60nbm12oXv_2nLVHzIDDXlL8bcf3b0AWZxxySQ",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.ezeedomains.com/name/TheCookingDoctor.com",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.gilchristchevytexas.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.platinumchevytexas.com/",
+    "fonte": "urlscan.io (search)"
+  },
+  {
+    "tipo": "url",
+    "valore": "https://www.triplecrownford.com/",
+    "fonte": "urlscan.io (search)"
   }
 ]

@@ -1,36 +1,44 @@
+# Python-Tool — OSINT/CTI Recon Aggregator
 
-# Python-Tool for CTI
+Open-source tool that automates OSINT (Open Source Intelligence) data
+collection from public sources, with a planned AI layer to correlate
+findings and highlight relationships between entities.
 
-The evolution of my Python skills. This repository is a collection of my Python scripts/tools, specifically focused on Cybersec and CTI daily tasks.
+## Status
 
+🚧 Active development — see [DEVLOG.md](DEVLOG.md) for the full history
+of design decisions.
 
-## 1. URL Defanger (`url_defanger.py`)
-A quick, light and easy script to neutralize malicious URLs before sharing them with  team or in reports. It prevents accidental clicks by replacing protocols and wrapping dots.
+## Modules
 
-## 2. IP Validator (`ip_validator.py`)
-A script that takes an IP address as input and mathematically verifies if it's a valid IPv4/IPv6 address, discarding malformed data.
+| Source | What it does | API key needed |
+|---|---|---|
+| [crt.sh](https://crt.sh) | Subdomain enumeration via Certificate Transparency logs | No |
+| [VirusTotal](https://www.virustotal.com) | Domain reputation score and detection stats | Yes |
+| [urlscan.io](https://urlscan.io) | Looks up existing scans for a domain (IPs, pages) | No |
 
----
-*These tools mark the beginning of my Python journey (Day 3!). The goal is to continuously update them and add more complex automations as my skills grow.*
+Each module lives in `modules/` and exposes a `METADATA` dict describing
+what it accepts, what it produces, and its known limits (rate limits,
+reliability) — see `modules/crtsh.py` for the pattern.
 
----
-## 3. Python-Tool — OSINT/CTI Recon Aggregator
+Planned next: AI correlation layer to connect findings across sources.
 
-An open-source tool for automating the collection and correlation of OSINT from public sources, featuring AI-based integrative analysis to highlight (potential) relationships between the identified entities.
+## Project structure
 
----
-## Current state:
-Currently active development — see [DEVLOG.md](DEVLOG.md) for write-up and path chosen.
----
+```
+.
+├── main.py              # entry point, runs all modules on a target domain
+├── modules/              # one file per OSINT source
+│   ├── crtsh.py
+│   ├── virustotal.py
+│   └── urlscan.py
+├── utils/                 # shared helpers (not tied to a specific source)
+│   ├── ip_validator.py
+│   └── url_defanger.py
+└── output/                # JSON results (gitignored)
+```
 
-### Modules
-* \[x] `crt.sh` 
-* \[ ] `VirusTotal` 
-* \[ ] `urlscan.io` 
-* \[ ] AI correlation layer
-
-
-## Installation
+## Setup
 
 ```bash
 git clone https://github.com/riccardo0314/Python-Tool.git
@@ -38,38 +46,34 @@ cd Python-Tool
 pip install -r requirements.txt
 ```
 
+VirusTotal requires a free API key:
 
+1. Create an account at [virustotal.com](https://www.virustotal.com) and
+   grab your API key from your profile.
+2. Copy `.env.example` to `.env`.
+3. Paste your key into `.env`:
+   ```
+   VT_API_KEY=your_key_here
+   ```
 
-## Use
+`.env` is gitignored and never committed — only `.env.example` (with a
+placeholder) is tracked.
 
-### Subdomain enumeration
+## Usage
 
 ```bash
-python crtsh\_lookup.py example.com
+python main.py example.com
 ```
 
-Print found subdomain and save results on
-`crtsh\_<domain>.json`.
+Runs all modules against the target domain, prints a summary, and saves
+the combined results to `output/<domain>.json`.
 
----
-.
----
-.
----
-.
----
-.
----
-.
----
-.
----
-# Disclaimer
+## Disclaimer
 
-These tools have been developed for legitimate OSINT research and reconnaiissance.
+This tool is intended for legitimate OSINT use (bug bounty, authorized
+red teaming, security research, threat intelligence). Only use it
+against targets you own or are authorized to test.
 
-Use them only on authorised target.
-
-# Licence
+## License
 
 MIT
