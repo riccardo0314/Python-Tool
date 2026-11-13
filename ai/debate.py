@@ -15,6 +15,8 @@ covers local models served through an OpenAI-style API, e.g. Ollama).
 """
 
 import os
+
+import requests
 from dotenv import load_dotenv
 
 from ai.llm_client import call_model
@@ -66,16 +68,60 @@ def _get_model_config(number: int) -> dict:
     }
 
 
+MAX_ITEMS_PER_GROUP = 60  # per (source, type), to keep prompts short
+
+
 def _format_results(all_results: list[dict]) -> str:
-    """Turn the collected recon results into a readable block for the prompt."""
-    lines = []
+    """
+    Turn the collected recon results into a readable block for the prompt.
+
+    Large groups (e.g. hundreds of crt.sh subdomains) are cut to
+    MAX_ITEMS_PER_GROUP lines, with a note saying how many were left out.
+    Entries tagged as not belonging to the target always come first, so
+    look-alikes are never the ones cut.
+    """
+    groups = {}
     for r in all_results:
-        line = f"- [{r.get('fonte', '?')}] {r.get('tipo', '?')}: {r.get('valore', '?')}"
-        if "same_domain" in r:
-            tag = "same-domain" if r["same_domain"] else "UNRELATED (merely referenced/matched, not the target's own infra)"
-            line += f"  [{tag}]"
-        lines.append(line)
+        groups.setdefault((r.get("fonte", "?"), r.get("tipo", "?")), []).append(r)
+
+    lines = []
+    for (fonte, tipo), items in groups.items():
+        items = sorted(items, key=lambda r: r.get("same_domain") is not False)
+        for r in items[:MAX_ITEMS_PER_GROUP]:
+            line = f"- [{fonte}] {tipo}: {r.get('valore', '?')}"
+            if "same_domain" in r:
+                tag = "same-domain" if r["same_domain"] else "UNRELATED (not the target's own domain/infra)"
+                line += f"  [{tag}]"
+            lines.append(line)
+        if len(items) > MAX_ITEMS_PER_GROUP:
+            lines.append(
+                f"- [{fonte}] ... {len(items) - MAX_ITEMS_PER_GROUP} more {tipo} entries "
+                f"omitted here (same kind as above; {len(items)} in total)"
+            )
     return "\n".join(lines) if lines else "(no data collected)"
+
+
+def _call(cfg: dict, label: str, system_prompt: str, messages: list[dict], max_tokens: int = 500) -> str | None:
+    """Call one model; on failure print a clear message and return None."""
+    try:
+        return call_model(
+            provider=cfg["provider"], model_name=cfg["model_name"],
+            system_prompt=system_prompt, messages=messages,
+            api_key=cfg["api_key"], base_url=cfg["base_url"],
+            max_tokens=max_tokens,
+        )
+    except requests.exceptions.HTTPError as e:
+        code = e.response.status_code if e.response is not None else "?"
+        hints = {
+            401: "invalid or revoked API key — check its API_KEY in .env",
+            402: "no credits left on this provider account",
+            404: "model name not found — check its NAME in .env",
+            429: "rate limit hit — wait and retry",
+        }
+        print(f"[!] {label} failed: HTTP {code} ({hints.get(code, 'see the provider error')})")
+    except requests.exceptions.RequestException as e:
+        print(f"[!] {label} failed: {e}")
+    return None
 
 
 def _build_turn_messages(transcript: list[dict], speaker: str, context: str) -> list[dict]:
@@ -125,25 +171,16 @@ def run_debate(all_results: list[dict], rounds: int = 5) -> dict:
     transcript = []
 
     for round_number in range(1, rounds + 1):
-        print(f"[*] Round {round_number}/{rounds} — model 1 thinking...")
-        msgs_1 = _build_turn_messages(transcript, speaker="model1", context=context)
-        reply_1 = call_model(
-            provider=model_1["provider"], model_name=model_1["model_name"],
-            system_prompt=ANALYST_SYSTEM_PROMPT, messages=msgs_1,
-            api_key=model_1["api_key"], base_url=model_1["base_url"],
-        )
-        transcript.append({"speaker": "model1", "text": reply_1})
-        print(f"    Model 1: {reply_1[:100]}...")
-
-        print(f"[*] Round {round_number}/{rounds} — model 2 thinking...")
-        msgs_2 = _build_turn_messages(transcript, speaker="model2", context=context)
-        reply_2 = call_model(
-            provider=model_2["provider"], model_name=model_2["model_name"],
-            system_prompt=ANALYST_SYSTEM_PROMPT, messages=msgs_2,
-            api_key=model_2["api_key"], base_url=model_2["base_url"],
-        )
-        transcript.append({"speaker": "model2", "text": reply_2})
-        print(f"    Model 2: {reply_2[:100]}...")
+        for speaker, cfg, label in [("model1", model_1, "Model 1"), ("model2", model_2, "Model 2")]:
+            print(f"[*] Round {round_number}/{rounds} — {label} thinking...")
+            msgs = _build_turn_messages(transcript, speaker=speaker, context=context)
+            reply = _call(cfg, label, ANALYST_SYSTEM_PROMPT, msgs)
+            if reply is None:
+                # Stop cleanly: the raw results are already saved by main.py.
+                print("[!] Debate stopped. Raw results are still in the output JSON.")
+                return {"transcript": transcript, "final_report": ""}
+            transcript.append({"speaker": speaker, "text": reply})
+            print(f"    {label}: {reply[:100]}...")
 
     # Final synthesis, written by model 1
     print("[*] Model 1 writing final synthesis...")
@@ -152,11 +189,7 @@ def run_debate(all_results: list[dict], rounds: int = 5) -> dict:
         "role": "user",
         "content": f"Recon data:\n{context}\n\nDiscussion:\n{full_discussion}",
     }]
-    final_report = call_model(
-        provider=model_1["provider"], model_name=model_1["model_name"],
-        system_prompt=SYNTHESIS_SYSTEM_PROMPT, messages=synthesis_messages,
-        api_key=model_1["api_key"], base_url=model_1["base_url"],
-        max_tokens=1500,
-    )
+    final_report = _call(model_1, "Model 1 (synthesis)", SYNTHESIS_SYSTEM_PROMPT,
+                         synthesis_messages, max_tokens=1500) or ""
 
     return {"transcript": transcript, "final_report": final_report}

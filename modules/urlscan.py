@@ -133,7 +133,12 @@ SUBMIT_METADATA = {
 }
 
 
-def submit_and_scan(url: str, visibility: str = "unlisted", max_wait: int = 90) -> list[dict]:
+def submit_and_scan(
+    url: str,
+    visibility: str = "unlisted",
+    max_wait: int = 90,
+    target_domain: str = "",
+) -> list[dict]:
     """
     Submit a URL to urlscan.io, wait for the scan to complete, and
     return the findings in the shared format
@@ -222,16 +227,32 @@ def submit_and_scan(url: str, visibility: str = "unlisted", max_wait: int = 90) 
     lists = result_data.get("lists", {})
 
     results = []
+    seen = set()  # (tipo, valore) pairs already added, to avoid duplicates
 
-    if page.get("ip"):
-        results.append({"tipo": "ip", "valore": page["ip"], "fonte": SUBMIT_METADATA["name"]})
-    if page.get("domain"):
-        results.append({"tipo": "domain", "valore": page["domain"], "fonte": SUBMIT_METADATA["name"]})
+    def add_entity(tipo, valore, serves_target=False):
+        if valore and (tipo, valore) not in seen:
+            seen.add((tipo, valore))
+            entity = {"tipo": tipo, "valore": valore, "fonte": SUBMIT_METADATA["name"]}
+            # If we know the target domain, tag domains as same-domain or
+            # not (same idea as in search_domain).
+            if tipo == "domain" and target_domain:
+                entity["same_domain"] = _is_same_domain(valore, target_domain)
+            # IPs can't be classified by name. Only the IP that served the
+            # main page is marked as the target's; the others are every
+            # server the page contacted (fonts, analytics, other CDNs).
+            if tipo == "ip" and serves_target:
+                entity["same_domain"] = True
+            results.append(entity)
+
+    # The main page's IP/domain come first, then the full lists
+    # (which usually repeat them, hence the dedupe above).
+    add_entity("ip", page.get("ip"), serves_target=True)
+    add_entity("domain", page.get("domain"))
 
     for ip in lists.get("ips", []):
-        results.append({"tipo": "ip", "valore": ip, "fonte": SUBMIT_METADATA["name"]})
+        add_entity("ip", ip)
     for dom in lists.get("domains", []):
-        results.append({"tipo": "domain", "valore": dom, "fonte": SUBMIT_METADATA["name"]})
+        add_entity("domain", dom)
 
     malicious = verdicts.get("malicious", False)
     score = verdicts.get("score", "n/a")

@@ -100,12 +100,28 @@ def cerca_subdomains(dominio: str, tentativi: int = 3, attesa_secondi: int = 5) 
             if singolo_nome and not singolo_nome.startswith("*."):
                 subdomains_unici.add(singolo_nome)
 
+    # crt.sh also returns names that are NOT subdomains of the target
+    # (e.g. "engagetesla.com" or "www.tesla.com--com.com"). Tag them, so
+    # they are not mistaken for the target's own infra. Look-alikes like
+    # these are worth a look on their own (possible typosquatting).
     risultati = [
-        {"tipo": "domain", "valore": sub, "fonte": METADATA["nome"]}
+        {
+            "tipo": "domain",
+            "valore": sub,
+            "fonte": METADATA["nome"],
+            "same_domain": _is_same_domain(sub, dominio),
+        }
         for sub in sorted(subdomains_unici)
     ]
 
     return risultati
+
+
+def _is_same_domain(name: str, target: str) -> bool:
+    """True if name IS target or a subdomain of it."""
+    name = name.lower().rstrip(".")
+    target = target.lower().rstrip(".")
+    return name == target or name.endswith("." + target)
 
 
 if __name__ == "__main__":
